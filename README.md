@@ -31,7 +31,7 @@ Installation
 5. Create the database using the db.sql file located in root of the repository.
 
   ```
-  $ mysql -u _your-user_ -p < db.sql
+  $ mysql -u YOUR-MYSQL-USER -p < db.sql
   ```
 
 6. And you are done. Open the app in your browser [http://localhost/grooveApp](http://localhost/grooveApp) and enjoy.
