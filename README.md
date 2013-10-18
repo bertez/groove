@@ -33,5 +33,5 @@ Installation
   ```
   $ mysql -u YOUR-MYSQL-USER -p < db.sql
   ```
-
+6. Edit [this variable in js/app.js](https://github.com/bertez/groove/blob/master/js/app.js#L16) to point your api URL.
 6. And you are done. Open the app in your browser [http://localhost/grooveApp](http://localhost/grooveApp) and enjoy.
