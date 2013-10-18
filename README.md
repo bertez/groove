@@ -31,7 +31,6 @@ $ composer require fol/rest dev-master
 #### 5 - Create the database using the db.sql file located in the repository root.
 
 ```
-$ cd ../..
 $ mysql -u your-user -p < db.sql
 ```
 
