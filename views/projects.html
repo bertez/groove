@@ -1,0 +1,30 @@
+    <header>
+        <h2>Projects</h2>
+        <a href="#/projects/new" class="btn btn-success">Add new project</a>
+    </header>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Time booked</th>
+                <th>Time gone</th>
+                <th>%</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-class="{danger: !project.active}" ng-repeat="project in projects">
+                <td>
+                    <a class="btn btn-link" href="#/projects/view/{{project.id}}"><strong>{{ project.name }}</strong></a>
+                </td>
+                <td>{{ project.booked | parseLapse}}</td>
+                <td ng-class="{ warning: checkOverTime(project.gone, project.booked) }">{{ project.gone | parseLapse }}</td>
+                <td ng-class="{ warning: checkOverTime(project.gone, project.booked) }">{{ perCent(project.gone, project.booked) }}</td>
+                <td>
+                    <a class="btn btn-default btn-sm" href="#/projects/view/{{project.id}}">View</a>
+                    <a class="btn btn-primary btn-sm" href="#/projects/edit/{{project.id}}">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>

@@ -1,0 +1,61 @@
+<header>
+    <h1>{{ project.name | uppercase }}</h1>
+    <p class="lead">{{ project.description }}</p>
+</header>
+
+<p><strong>Active:</strong> {{ project.active }}</p>
+
+<p><strong>Time booked:</strong> {{ project.booked | parseLapse }}</p>
+<p ng-class="{ warning: timeSpent > project.booked }"><strong>Time spent:</strong> {{ timeSpent | parseLapse }}</p>
+
+<a href="#/projects/edit/{{ project.id }}" class="btn btn-primary">Edit</a>
+
+<div ng-show="project.active" class="lapse-controller" ng-controller="ProjectLapseCtrl">
+    <h2>Track your time:</h2>
+
+    <form name="lapseForm" role="form" ng-submit="addLapse()">
+
+        <div class="form-group">
+            <label>
+                User:
+                <select class="form-control" required ng-model="lapse.id_user" ng-options="key as user.name for (key, user) in usersById"></select>
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label>
+                Time spent:
+                <input class="form-control" type="text" human-time name="lapse" ng-model="lapse.amount" required placeholder="ex: 2h 30m">
+            </label>
+            <span ng-show="lapseForm.$error.lapse">Wrong input. Examples of valid inputs: <em>2h</em>, <em>2h 15m</em> or <em>30m</em></span>
+
+        </div>
+
+        <button ng-disabled="lapseForm.$invalid" type="submit" class="btn btn-default">Add</button>
+    </form>
+
+<h2>Project Log:</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Date</th>
+            <th>Time spent</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="lapse in lapses">
+            <td>{{ getUserInfo(lapse.id_user).name }}</td>
+            <td>{{ getUserInfo(lapse.id_user).role }}</td>
+            <td>{{ parseDate(lapse.updated) | date }}</td>
+            <td>{{ lapse.amount | parseLapse }}</td>
+            <td><button class="btn btn-danger btn-sm" ng-click="removeLapse($index, lapse.id)">Remove</button></td>
+        </tr>
+
+    </tbody>
+</table>
+
+</div>

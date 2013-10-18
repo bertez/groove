@@ -1,0 +1,42 @@
+<!doctype html>
+
+<html lang="en" ng-app="grooveApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GrooveApp</title>
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+
+    <div class="loading-bar" loading-bar>Loading...</div>
+
+    <header class="container" ng-controller="HeaderCtrl">
+      <ng-include src="'views/header.html'"></ng-include>
+    </header>
+
+    <section class="container" ng-view=""></section>
+
+
+    <!-- Libraries -->
+    <script type="text/javascript" src="lib/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="lib/bootstrap.js"></script>
+    <script type="text/javascript" src="lib/moment-with-langs.min.js"></script>
+
+    <script type="text/javascript" src="lib/angular.js"></script>
+    <script type="text/javascript" src="lib/angular-route.js"></script>
+    <script type="text/javascript" src="lib/angular-resource.js"></script>
+    <script type="text/javascript" src="lib/angular-localstorage.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="js/folresource.js"></script>
+    <script type="text/javascript" src="js/filters.js"></script>
+    <script type="text/javascript" src="js/directives.js"></script>
+    <script type="text/javascript" src="js/services.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

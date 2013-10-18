@@ -1,0 +1,24 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+
+.loading-bar {
+    text-align: center;
+    background: yellow;
+    padding: 10px 10px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.warning {
+    color: red;
+}
+
+.inactive {
+    color: #ccc;
+    font-size: .8em;
+}

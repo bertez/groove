@@ -1,0 +1,61 @@
+<header>
+    <h2>Log your time</h2>
+</header>
+
+<form name="logForm" role="form" ng-submit="save()">
+    <div class="form-group">
+        <label>
+            User:
+            <select ng-model="lapse.id_user" class="form-control" required ng-options="key as user.name for (key, user) in users"></select>
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label>
+            Project:
+            <select ng-model="lapse.id_project" class="form-control" required ng-options="key as project.name for (key, project) in projects"></select>
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label>
+            Time spent:
+            <input class="form-control" type="text" name="lapse" human-time ng-model="lapse.amount" required placeholder="ex: 2h 30m">
+        </label>
+        <span ng-show="logForm.$error.lapse">Wrong input. Examples of valid inputs: <em>2h</em>, <em>2h 15m</em> or <em>30m</em></span>
+    </div>
+
+    <button ng-disabled="logForm.$invalid" type="submit" class="btn btn-default">Add</button>
+</form>
+
+<div ng-switch on="logs.length > 0">
+    <div ng-switch-when="true">
+        <h2>Current Logs</h2>
+        <p>These logs are currently stored in your browser's Local Storage. When you are finished, please sync with the server.</p>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Project</th>
+                    <th>Amount</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="log in logs">
+                    <td>{{ users[log.id_user].name }}</td>
+                    <td>{{ projects[log.id_project].name }}</td>
+                    <td>{{ log.amount | parseLapse }}</td>
+                    <td><button class="btn btn-danger" ng-click="removeLog($index)">Remove</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+    <button class="btn btn-success btn-lg" ng-click="sync()">Sync Current Logs</button>
+</div>
+<div ng-switch-when="false">
+    <h2>No logs</h2>
+    <p>Please, log your time</p>
+</div>
+</div>

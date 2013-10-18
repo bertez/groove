@@ -1,0 +1,27 @@
+<header>
+    <h2>{{ edit_action }} project</h2>
+</header>
+
+<form name="projectForm" role="form" ng-submit="save()">
+    <div class="form-group">
+        <label>Name: <input type="text" ng-model="project.name" class="form-control" placeholder="Enter project name" required/> </label>
+    </div>
+    <div class="form-group">
+        <label>Description: <input type="text" ng-model="project.description" class="form-control" placeholder="Enter project description" required /> </label>
+    </div>
+    <div class="form-group" ng-hide="notime">
+        <label>Time booked: <input type="text" human-time name="lapse" ng-model="project.booked" class="form-control" placeholder="Enter time booked for this project" required /> </label>
+        <span ng-show="projectForm.$error.lapse">Wrong input. Valid inputs: <em>2h</em>, <em>2h 15m</em>, <em>30m</em></span>
+    </div>
+    <div class="form-group">
+        <label>Time used: <input disabled type="text" human-time ng-model="project.gone" class="form-control" /> </label>
+    </div>
+    <div class="checkbox">
+        <label><input type="checkbox" ng-model="project.active"/> Active?</label>
+    </div>
+
+    <button type="submit" ng-disabled="projectForm.$invalid" class="btn btn-default">Save</button>
+
+    <a ng-click="removeProject()" class="btn btn-danger" ng-hide="!project.id">Delete</a>
+
+</form>

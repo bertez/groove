@@ -1,0 +1,24 @@
+<header>
+    <h2>{{ edit_action }} user</h2>
+</header>
+
+<form name="userForm" role="form" ng-submit="save()">
+    <div class="form-group">
+        <label>Name: <input type="text" ng-model="user.name" class="form-control" placeholder="Enter user name" required/> </label>
+    </div>
+    <div class="form-group">
+        <label>Email: <input type="text" ng-model="user.email" class="form-control" placeholder="Enter user email" required /> </label>
+    </div>
+    <div class="form-group">
+        <label>Role:
+        <select required ng-model="user.role" class="form-control" ng-options="role for role in roles"></select></label>
+    </div>
+    <div class="checkbox">
+        <label><input type="checkbox" ng-model="user.active"/> Active?</label>
+    </div>
+
+    <button type="submit" ng-disabled="userForm.$invalid" class="btn btn-default">Save</button>
+
+    <a ng-click="disableUser()" class="btn btn-danger" ng-hide="!user.id">Disable</a>
+
+</form>
