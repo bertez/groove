@@ -1,7 +1,7 @@
-groove
-======
+grooveApp
+=========
 
-Time tracking app developed by A navalla suíza using the superheroic Angular JS javascript framework and the not least awesome FOL PHP microframework. It also uses MySQL for data persistence and Bootstrap for the UI.
+Time tracking app developed by [A navalla suíza](http://idc.anavallasuiza.com/) using the superheroic [Angular JS javascript framework](http://angularjs.org/) and the not least awesome [FOL PHP microframework](https://github.com/oscarotero/fol). It also uses MySQL for data persistence and Bootstrap for the UI.
 
 
 Installation
