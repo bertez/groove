@@ -7,7 +7,7 @@ Time tracking app developed by [A navalla suíza](http://idc.anavallasuiza.com/)
 Installation
 ------------
 
-1. Clone this repository in grooveApp folder
+1. Clone this repository in your webserver root directory (the directory of http://localhost, or similar) 
 
   ```
   $ git clone git@github.com:bertez/groove.git grooveApp
