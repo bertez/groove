@@ -20,11 +20,11 @@ $ cd grooveApp
 $ composer create-project fol/fol api
 ```
 
-#### 3 - Once fol is installed, you need to install the app with the rest api:
+#### 3 - Once fol is installed, you need to install the app with the rest api (choose the default settings):
 
 ```
 $ cd api
-$ composer require fol/rest
+$ composer require fol/rest dev-master
 ```
 
 #### 4 - Then, edit the index.php file to register the installed app and execute it:
